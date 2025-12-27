@@ -1,4 +1,4 @@
-# YouTube Audio Pro 🎧
+# YouTube Volume Control Enhanced 🎧
 
 > The ultimate customizable volume controller for YouTube. Themes, scroll gestures, and granular control.
 
