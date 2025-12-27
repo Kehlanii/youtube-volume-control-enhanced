@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Volume Control</h1>
+    
+    <div class="setting-group">
+      <label for="themeSelect">Theme</label>
+      <select id="themeSelect" class="theme-select">
+        <optgroup label="Built-in Themes">
+          <option value="nord">Nord</option>
+          <option value="dracula">Dracula</option>
+          <option value="tokyonight">Tokyo Night</option>
+          <option value="catppuccin">Catppuccin Mocha</option>
+          <option value="gruvbox">Gruvbox Dark</option>
+          <option value="onedark">One Dark</option>
+          <option value="monokai">Monokai Pro</option>
+          <option value="palenight">Material Palenight</option>
+          <option value="solarized">Solarized Dark</option>
+          <option value="synthwave">Synthwave '84</option>
+          <option value="nightowl">Night Owl</option>
+          <option value="ayu">Ayu Dark</option>
+        </optgroup>
+        <optgroup label="Custom Themes" id="customThemesGroup" style="display: none;">
+        </optgroup>
+      </select>
+      <div class="theme-actions">
+        <button type="button" id="createThemeBtn" class="small-btn">Create Custom</button>
+        <button type="button" id="editThemeBtn" class="small-btn" style="display: none;">Edit</button>
+        <button type="button" id="deleteThemeBtn" class="small-btn danger" style="display: none;">Delete</button>
+      </div>
+      <p class="hint">Choose or create your visual style</p>
+    </div>
+
+    <div id="themeBuilder" class="theme-builder" style="display: none;">
+      <div class="builder-header">
+        <h2 id="builderTitle">Create Custom Theme</h2>
+        <button type="button" id="closeBuilderBtn" class="close-btn">×</button>
+      </div>
+      
+      <div class="setting-group">
+        <label for="customThemeName">Theme Name</label>
+        <input type="text" id="customThemeName" class="text-input" placeholder="Theme" maxlength="30">
+      </div>
+
+      <div class="color-grid">
+        <div class="color-input-group">
+          <label for="color-bg0">Background</label>
+          <input type="color" id="color-bg0" value="#2E3440">
+        </div>
+        <div class="color-input-group">
+          <label for="color-bg1">Container</label>
+          <input type="color" id="color-bg1" value="#3B4252">
+        </div>
+        <div class="color-input-group">
+          <label for="color-bg2">Border</label>
+          <input type="color" id="color-bg2" value="#434C5E">
+        </div>
+        <div class="color-input-group">
+          <label for="color-bg3">Input Border</label>
+          <input type="color" id="color-bg3" value="#4C566A">
+        </div>
+        <div class="color-input-group">
+          <label for="color-fg0">Text Primary</label>
+          <input type="color" id="color-fg0" value="#ECEFF4">
+        </div>
+        <div class="color-input-group">
+          <label for="color-fg1">Text Secondary</label>
+          <input type="color" id="color-fg1" value="#E5E9F0">
+        </div>
+        <div class="color-input-group">
+          <label for="color-fg2">Text Hint</label>
+          <input type="color" id="color-fg2" value="#D8DEE9">
+        </div>
+        <div class="color-input-group">
+          <label for="color-accent">Accent</label>
+          <input type="color" id="color-accent" value="#88C0D0">
+        </div>
+        <div class="color-input-group">
+          <label for="color-accent2">Accent 2</label>
+          <input type="color" id="color-accent2" value="#81A1C1">
+        </div>
+        <div class="color-input-group">
+          <label for="color-accent3">Accent 3</label>
+          <input type="color" id="color-accent3" value="#5E81AC">
+        </div>
+        <div class="color-input-group">
+          <label for="color-success">Success</label>
+          <input type="color" id="color-success" value="#A3BE8C">
+        </div>
+        <div class="color-input-group">
+          <label for="color-error">Error</label>
+          <input type="color" id="color-error" value="#BF616A">
+        </div>
+      </div>
+
+      <div class="builder-actions">
+        <div class="builder-actions-row">
+          <button type="button" id="importThemeBtn" class="small-btn">Import</button>
+          <button type="button" id="exportThemeBtn" class="small-btn">Export</button>
+        </div>
+        <button type="button" id="saveCustomThemeBtn" class="btn-primary">Save Theme</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <label for="volumeStep">Volume Step</label>
+      <div class="input-group">
+        <input type="number" id="volumeStep" min="1" max="50" value="5">
+        <span class="unit">%</span>
+      </div>
+      <p class="hint">Amount to change per key press</p>
+    </div>
+
+    <div class="setting-group">
+      <label class="checkbox-label">
+        <input type="checkbox" id="scrollEnabled">
+        <span class="checkbox-text">Mouse Wheel Control</span>
+      </label>
+      <p class="hint">Scroll on video to adjust volume</p>
+    </div>
+    
+    <button id="saveBtn">Save Settings</button>
+    
+    <div id="status" class="status"></div>
+  </div>
+  
+  <input type="file" id="importFileInput" accept=".json" style="display: none;">
+  
+  <script src="themes.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
